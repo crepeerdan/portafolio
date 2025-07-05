@@ -1,0 +1,487 @@
+
+*{
+    margin: 0; /*elimina espacios exteriores*/
+    padding: 0; /*elimina espacios interiores*/
+    box-sizing: border-box; /*esta propiedad lo que hace es que en el width y en el height incluyan el contenido + el padding + el border. Esto porque si no se pone, por defecto tendria "box-sizing: content-box", es decir, no incluiria ni el padding ni el border. Entonces, lo que hace esta propiedad es que, permite que el ancho, como ejemplo, width:200px mida realmente eso, y si yo le pongo por ejemplo un padding de 20px, un border de 5px, lo que hara es acomodar o encajar todo de acuerdo a esa medida de 200px, es decir: contenido=150px, padding=20px(10px de cada lado), border=10px(5px cada lado) entonces daria en total 200px.*/
+    text-decoration: none;
+}
+section{
+  display: flex;
+}
+
+
+
+/* CLASS DEL DIV QUE ENCIERRA HEADER, ARTICLE ".MENU" Y LOS ENLACES DE LOS BOTONES DEL ENCABEZADO*/
+
+.estructura{
+   display: flex; 
+   height: 100vh;  /*este height: 100vh lo que hace es decirle al header y main que debe tener el mismo alto que toda la pantalla visible del navegador. En este caso, los 100vh, hace que ocupe completa la pantalla de arriba a abajo, y si pusieramos 50vh, entonces, ocuparia la mitad de la pantalla, claramente hablando de altura. El vh, es una unidad de medida. Entonces: 1vh = 1% de la altura total de la ventana del navegador. La diferencia que tiene con los px, es que los px son pixeles fijos o medidas fijas, es decir, no se adaptan automanticamente a la pantalla donde este. Pero con los vh si cambia, porque se acomoda automanticamente al tamaño o altura de la misma pantalla, entonces, lo hace versartil*/
+}
+header{
+    width: 200px;
+    background-color: #cdb4db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*aqui se aplica las misma propiedades que esta en .menu, y asi se centra el article que lo contiene el header*/
+}
+
+
+article{
+   
+}
+
+
+/* CLASS DE ARTICLE QUE ENCIERRA LOS BOTONES DEL ENCABEZADO*/
+
+.menu{ 
+   flex-direction: column; /*este lo que va a hacer es alinear los elementos en forma de columna, esto es para que, los botones, uno quede debajo del otro*/
+   /*para yo centrar el article, lo que debo hacer es aplicarlo al contenedor donde esta el article, es decir, header*/
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  gap: 10px; /*hace un espaciado entre todos los elementos en general, en este caso, los botones*/
+  padding-right: 10px;
+  width: 90%; /* hace que el article ocupe el 100% del header*/
+  display: flex;
+} 
+
+
+/*CLASS TODOS LOS BOTONES*/
+
+.boton{ 
+    background-color: #f2e9e4;
+    color: #5a189a;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 100%; /*este me permite que el fondo del boton no solo ocupe el tamaño del texto sino que ocupe el tamaño del .menu (article que le encierra a todos los botones)*/
+    text-align: right;
+    transition: background-color 0.3s ease, transform 0.2s ease; /*transition permite que los cambios de estilo se produzcan de forma lenta y gradual. Entonces: transition: propiedad duración - tipo de animación; "background-color" indica que propiedad voy a animar, en este caso, el color de fondo cuando hago hover. "0,3s" es la duración de la transición, es decir, el cambio tomara  0,3 segundos desde que pongo el mouse encima. "ease" es el tipo de animación (función de tiempo). Ease empieza lento, acelera al medio y termina lento. Entonces esta linea significa que: “Cuando el usuario pase el mouse, el fondo cambiará suavemente en 0.3 segundos, y el botón se agrandará un poco en 0.2 segundos, ambos con un efecto suave.” */
+}
+.boton:hover{
+  background-color: rgb(147, 50, 144);
+  color: white; 
+}
+
+
+/*BOTON 2 DISEÑO*/
+
+.boton2.activo{
+   background-color: #411951;
+   transform: scale(1.05); /*Y esta ultima transición "transform: scale(1.05)", hace que el boton se agrande un poco mas cuando paso el mouse*/
+   color:white;
+   /*pero este de aqui lo que va a hacer es que se mantenga activo, esto con la intención de que la persona entienda en que sección del menu se encuentra en ese momento, entonces, lo que hace es que en cada pagina donde necesito que cambie el color y se quede ahi, pondre este class de .activo*/
+}
+
+
+/*BOTON 3 FOTOGRAFIA*/
+
+.boton3.activo{
+   background-color: #411951;
+   transform: scale(1.05);
+   color:white; 
+}
+
+
+/*BOTON 4 EDITORIAL*/
+
+.boton4.activo{
+   background-color: #411951;
+   transform: scale(1.05);
+   color:white;
+}
+
+
+/*BOTON 5 CONTACTO*/
+
+.contactocontenedor{
+  border-radius: 10px;
+  display: flex;
+  background-color: #0a0a23;
+  justify-content: center;    /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */    
+  gap: 15px; /* Espacio entre los íconos */
+  padding: 8px 12px;  /* 8px : arriba y abajo; 12px : izquierda y derecha */
+}
+
+.contacto{
+  width: 40px;
+  height: 40px;
+  background-size:30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dos{
+background-image: url(instagram.png);
+}
+.uno{
+  background-image: url(gmaildos.png);
+}
+
+
+
+main{ /*aqui, el main general, si lleva estas caracteristicas, porque en este caso, deseo que aplique para todo el contenido dentro de main*/
+    flex: 1; /*este flex: 1, lo que hace es que esta diciendo al main que ocupe todo el espacio disponible restante dentro del contenedor flex. En este caso como hay un div encerrando el header y el main, el header ocupa 200px de espacio fijos, entonces, lo que hace esta propiedad es que el main ocupe lo restante automaticamente, que serian 800px*/
+    padding: 20px; /*estos 20px son para que el contenido no quede pegado al borde, entonces, lo que hace es generar un margen interior*/
+}
+
+
+/* CLASS DEL MAIN EN ARCHIVO "INDEX" */
+
+.inicio{ /*este class, lo puse en el main de index, porque como yo pondre otras paginas, no quiero que el contenido quede centrado como en este caso*/
+    display: flex; /*este activa el flexbox*/
+    justify-content: center; /*este va a centrar de forma horizontal*/
+    align-items: center; /*este va a centrar de forma vertical*/
+    flex-direction: column; /*y este lo que va a hacer es alinear los elementos en forma de columna, esto es para que, por ejemplo, mi nombre, no quede de lado derecho al titulo que dice mi portafolio*/
+    gap: 40px;/* este gap lo que hace es hacer la separación entre "Mi portafolio" y "Daniela Gaitán Moreno", aunque tambien puedo usar el margin-top o el margin-botton, pero para hacerlo un poco mas facil, aplico este general.*/
+    background-image: url(intento.gif);
+    background-size: cover; /*este lo que hace es rellenar completamente sin dejar espacios*/
+    background-position: center; /*este centra la imagen*/
+
+}
+
+/*MI PORTAFOLIO*/
+
+h1{
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 130px;
+  color: rgba(255, 255, 255, 0.8); 
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(to right, #ffffffcc, #f2f2f2aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/*CLASS A(ENLACE)  "DANIELA GAITÁN MORENO" */
+
+.nombre{
+  font-family: "Charm", cursive;
+  font-weight: 700;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.836);
+  font-size: 45px;
+  background-color: rgba(66, 35, 95, 0.685);
+  width: 45%;
+  text-align: center;
+  padding: 5px;
+  border-radius: 30px;
+  letter-spacing: 2px;
+  position: relative;
+  border: 2px solid transparent;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.nombre:hover{
+  border: 2px solid #ffd79f;
+  box-shadow: 0 0 100px rgba(240, 148, 91, 0.77);
+  background-color: rgba(219, 151, 15, 0.685); 
+}
+
+
+/*SECTION QUE ENCIERRA LAS IMAGENES Y LAS PREGUNTAS CON SUS PARRAFOS*/
+
+.cierrepregu{
+  justify-content: center;  
+  align-items: center;      
+}
+/*¿Quién soy? ¿Qué me gusta? *¿Qué se hacer*/
+
+.pregunta{ 
+  text-align: center;
+  background-color: #0a0a23;
+  color: white;
+  padding: 10px;
+  font-family: "Lato", sans-serif;
+}
+
+.imagen{
+  position: relative; /*establece el contenedor de referencia para el posicionamiento absoluto del texto.*/
+  display: inline-block; /*permite que el div se comporte como un bloque pequeño ajustado al contenido (sin romper el flujo como un block), y que puedas darle dimensiones si lo necesito.*/
+}
+.tarjeta{
+  width: fit-content; /* esta propiedad le dice al navegador esto: “Haz que el ancho del elemento sea exactamente el necesario para contener su contenido interno, pero no más grande que eso.” */
+  margin: 40px auto; /* 40px arriba y abajo, auto a los lados → hace que el contenedor quede centrado horizontalmente */
+}
+.imagen>img{
+
+  width: 100%;
+  height: auto; /* Altura según contenido o proporción natural */
+  max-height: 77vh; /*Controla que la imagen no sobrepase el 77% de la altura de la pantalla (vh = viewport height)*/
+
+  /* y juntas estas dos propiedades le dicen al navegador esto: “Déjala crecer según su contenido (o proporción original), pero que nunca mida más que el 77% de la pantalla.” */
+} 
+
+.texto-oculto{
+  display: none; /* Oculta completamente el elemento */
+  position: absolute; /* Posiciona este elemento encima de la imagen, sin afectar el flujo normal del documento */
+  top: 0; 
+
+  /* Top y Left: Coloca esta capa exactamente en la esquina superior izquierda del contenedor .imagen */
+
+  left: 0;
+  width: 100%;
+
+  /* Width y Height: Hace que el .texto-oculto ocupe exactamente el mismo tamaño que el contenedor .imagen */
+
+  height: 100%;
+  background-image: url(otrodos.gif);
+  background-size: cover;
+  color: white;
+  padding: 30px;
+
+  overflow-y: auto; /* controla cómo se comporta el contenido verticalmente (eje Y) cuando se desborda, es decir, cuando no cabe dentro del alto (height) de su contenedor.Esto significa que: Si el contenido vertical es más grande que el contenedor, muestra automáticamente una barra de scroll vertical. Pero solo si es necesario. */
+
+  font-family: "Lato", sans-serif;
+  background-color: rgba(0, 0, 0, 0.6); /* negro semitransparente sobre el gif */
+  backdrop-filter: blur(2px) /*hace un desenfoque a lo que esta detras del elemento y con elemento me refiero a .texto-oculto, es decir, que lo que se desenfoca en las imagen de atras (img) */
+}
+
+.texto-oculto p{
+  margin-bottom: 15px;
+  line-height: 1.6; /* espacio entre líneas */
+  font-size: 16px;
+}
+
+.tarjeta:hover .texto-oculto {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.principalquiensoy{
+  background-image: url(fondo.jpg);
+  background-position: top left;
+  background-size: cover;
+  
+}
+.barra{
+  display: flex;
+  align-items: center;
+  gap: 10px; /* espacio entre ícono, nombre y estrellas */
+  margin-bottom: 8px;
+}  
+.icono {
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.barra .icono{ /* "Selecciona el elemento con clase .icono que esté dentro de un .herramienta". */ /* 
+Los selectores como .herramienta .icono aplican estilos solo cuando .icono está dentro de .herramienta.
+Esto ayuda a mantener los estilos organizados y evitar conflictos si hay otras clases .icono en el sitio.
+Usar selectores específicos es útil cuando quieres controlar mejor dónde se aplican los estilos.
+*/
+
+  min-width: 32px; /*Define que el ancho mínimo del icono debe ser de 32 píxeles, para que todos los íconos tengan un ancho consistente, aunque algunos tengan menos contenido. */
+
+  text-align: center;
+  color: #d6b4fc;
+}
+.barra .nombreprog{
+  min-width: 100px; /*Asegura que todos los nombres ("Photoshop", "Illustrator", etc.) tengan al menos 100px de ancho, así todas las estrellas comienzan alineadas a la misma altura.*/
+}
+
+.barra .estrellas{
+  flex: 1; /*Le dice al contenedor de estrellas que ocupe el resto del espacio disponible, empujando su contenido hacia la izquierda o ajustándose al ancho restante de la fila.*/
+}
+
+.ps{
+  background-image: url(ps.png);
+}
+.ai{
+  background-image: url(ai.png);
+}
+.id{
+  background-image: url(id.png);
+}
+.dn{
+  background-image: url(dn.png);
+}
+.lr{
+  background-image: url(lr.png);
+}
+
+
+/*PAGINA DE DISEÑO*/ 
+
+.paginadiseño{
+background-image: url(fondo.jpg);
+background-position: bottom right;
+background-size: cover;
+}
+
+.galeria {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+.miniatura {
+  width: 360px;
+  height: 540px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+.miniatura:hover {
+  transform: scale(1.05);
+}
+.miniatura>img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover; /* object-fit es una propiedad de CSS que controla cómo se ajusta una imagen o un video dentro de su contenedor (cuando usas width y height fijos). Se usa comúnmente en etiquetas como <img> o <video>. */
+
+  display: block;
+}
+
+/*PAGINA CARTAS UNO*/
+
+.columna{
+  display: flex;
+  flex-direction: column;
+}
+
+.paginacartas{
+
+  background: url("jugando\ cartas\ lofi.png");
+  background-size: cover;
+ background-position: center;
+}
+
+
+
+
+.mesa {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px;
+}
+.carta {
+  width: 130px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+.carta:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.rotar1 { 
+transform: rotate(-5deg);
+}
+.rotar2 { 
+transform: rotate(4deg);
+}
+.rotar3 {
+transform: rotate(-7deg);
+}
+.rotar4 {
+transform: rotate(4deg);
+}
+.rotar5 {  
+transform: rotate(-5deg);
+}
+.rotar6 {
+transform: rotate(-7deg);
+}
+.rotar7 {
+transform: rotate(4deg);
+}
+.rotar8 {
+transform: rotate(-5deg);
+}
+.rotar9 {
+transform: rotate(-7deg);
+}
+.rotar10 {  
+transform: rotate(-5deg);
+}
+.rotar11 {
+transform: rotate(4deg);
+}
+.rotar12 {
+transform: rotate(-10deg);
+}
+.textocartas{
+   font-family: "Lato", sans-serif;
+   text-align: center;
+   background-color: #0a0a23ba;
+   padding: 20px;
+   color: white;
+   margin-top: 50px;
+   font-size: 20px;
+    line-height: 1.6;
+}
+  /* PAGINA DE LOGOS */
+
+  .paginalogos{
+    background-image: url(fondo\ logos.png);
+    background-size: contain;
+    background-position: center;
+  }
+
+  .galeria-multimedia {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  max-width: 90%;
+}
+.galeria-multimedia video,
+.galeria-multimedia img {
+  width: 250px;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  flex: 0 0 auto;
+}
+
+
+/*PAGINA DE FOTOGRAFIA */
+
+.paginafotogra{
+  background-image: url(fondo.jpg);
+  background-position: bottom left;
+}
+
+.galeria-horizontal {
+  display: flex;
+  gap: 16PX;
+  overflow-x: auto;
+  padding: 16PX;
+  scroll-snap-type: x mandatory;
+  max-width: 90vw;
+}
+.galeria-horizontal img {
+  height: 500px;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.galeria-horizontal img:hover {
+  transform: scale(1.05);
+}
+/* PAGINA DE EDITORIAL */
+
+.paginaeditorial{
+  background-image: url(fondo.jpg);
+  background-position: top right;
+}
